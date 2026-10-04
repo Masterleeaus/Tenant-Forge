@@ -7,7 +7,6 @@ use App\Enums\Stripe\SubscriptionStatusEnum;
 use App\Enums\TenantSuport\TicketPriorityEnum;
 use App\Enums\TenantSuport\TicketStatusEnum;
 use App\Enums\TenantSuport\TicketTypeEnum;
-
 use PHPUnit\Framework\TestCase;
 
 class TenantForgeDomainEnumTest extends TestCase
