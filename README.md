@@ -20,7 +20,7 @@ The strongest engineering problem here is cross-cutting tenant safety: identity,
 ## Architecture
 
 ```text
-                         TenantForge
+                         Tenant-Forge
                               |
               +---------------+---------------+
               |                               |
@@ -90,7 +90,7 @@ Tenant support is represented as an application workflow rather than an external
 | Administration and tenant panels | `app/Providers/Filament/`, `app/Filament/` | separate admin/application resources, pages and widgets |
 | Billing workflows | `app/Services/Stripe/`, `app/Filament/Billing/`, `app/Http/Controllers/StripeWebhookController.php` | Cashier-backed checkout, subscription, refund and webhook handling |
 | Persistence contract | `database/migrations/` | organization, billing, support, webhook and job-related tables |
-| Automated checks | `tests/Unit/TenantForgeDomainEnumTest.php` and Laravel example tests | enum invariants plus application/unit smoke coverage; external Stripe flows are not integration-tested here |
+| Automated checks | `tests/Unit/Tenant-ForgeDomainEnumTest.php` and Laravel example tests | enum invariants plus application/unit smoke coverage; external Stripe flows are not integration-tested here |
 
 ## Repository structure
 
@@ -163,7 +163,7 @@ Do not commit real database credentials, Stripe secrets or webhook signing secre
 
 ## Limitations
 
-TenantForge is an engineering foundation, not a finished vertical SaaS product. Production deployment requires environment-specific security review, backup/restore policy, monitoring, rate limiting, tenant-isolation testing and payment-flow validation.
+Tenant-Forge is an engineering foundation, not a finished vertical SaaS product. Production deployment requires environment-specific security review, backup/restore policy, monitoring, rate limiting, tenant-isolation testing and payment-flow validation.
 
 The repository demonstrates application architecture and integration patterns; it does not claim PCI certification or guarantee that a deployment is secure solely because it uses this codebase.
 
@@ -173,7 +173,7 @@ The repository demonstrates application architecture and integration patterns; i
 
 ## Provenance and attribution
 
-This repository is derived from the MIT-licensed `wallacemartinss/core_tenant` project by **Wallace Martins**. Upstream architecture and code remain subject to their original license and attribution requirements. Subsequent development and the TenantForge project identity are maintained by **Jason Lee / @Masterleeaus**.
+This repository is derived from the MIT-licensed `wallacemartinss/core_tenant` project by **Wallace Martins**. Upstream architecture and code remain subject to their original license and attribution requirements. Subsequent development and the Tenant-Forge project identity are maintained by **Jason Lee / @Masterleeaus**.
 
 The provenance statement is intentionally retained so that downstream users can distinguish upstream work from subsequent development.
 
