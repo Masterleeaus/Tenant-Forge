@@ -4,9 +4,59 @@
 
 > A tenant-aware Laravel SaaS foundation for organizations, administration, billing, and subscription workflows.
 
+## Overview
+
 Tenant-Forge gives teams a practical starting point for building organization-based SaaS products on a shared database. It combines tenant lifecycle management, Filament application surfaces, Stripe-backed subscription operations, support workflows, and Docker-oriented local infrastructure in one reviewable Laravel codebase.
 
-## What the foundation demonstrates
+
+## Measured evidence
+
+Tenant-Forge currently has **foundation-level verification**, not a tenant-isolation or live-billing benchmark.
+
+The repository's quality workflow performs:
+
+```bash
+composer validate --strict --no-check-lock
+composer install --no-interaction --prefer-dist --no-progress
+vendor/bin/phpunit --testsuite Unit
+vendor/bin/pint --test
+```
+
+The focused domain-enum test file contains three unit tests covering:
+
+- uniqueness of persisted subscription-status values;
+- uniqueness of billing interval values;
+- explicit, non-duplicated support ticket priority/status/type states.
+
+This is useful schema/domain evidence, but it does **not** prove cross-tenant query isolation, Stripe settlement correctness, webhook replay safety or production security.
+
+## What is new
+
+The engineering value of Tenant-Forge is the way **tenant context cuts across identity, application surfaces, persistence, billing and support** in a shared-database Laravel architecture.
+
+```text
+User / administrator
+      ↓
+Tenant context
+      ↓
+Filament application surface
+      ↓
+Domain / billing service
+      ↓
+Shared SQL state
+      ↓
+External Stripe authority
+```
+
+Important boundaries:
+
+- **Shared-database tenancy** makes tenant scope an application invariant, not an infrastructure assumption.
+- **Stripe remains payment authority** while local billing records act as application projections.
+- **Admin and tenant surfaces are separated** through Filament panel/resource structure.
+- **Typed subscription and support states** reduce ambiguous persisted values.
+- **Provenance is explicit**: the repository retains attribution to its upstream MIT foundation instead of presenting inherited architecture as wholly original.
+
+## Verified capabilities
 
 | Capability | Implementation evidence |
 |---|---|
