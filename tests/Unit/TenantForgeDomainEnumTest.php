@@ -2,11 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Enums\Stripe\ProductIntervalEnum;
-use App\Enums\Stripe\SubscriptionStatusEnum;
-use App\Enums\TenantSuport\TicketPriorityEnum;
-use App\Enums\TenantSuport\TicketStatusEnum;
-use App\Enums\TenantSuport\TicketTypeEnum;
+use App\Enums\Stripe\{ProductIntervalEnum, SubscriptionStatusEnum};
+use App\Enums\TenantSuport\{TicketPriorityEnum, TicketStatusEnum, TicketTypeEnum};
 use PHPUnit\Framework\TestCase;
 
 class TenantForgeDomainEnumTest extends TestCase
