@@ -2,11 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Enums\Stripe\ProductIntervalEnum;
-use App\Enums\Stripe\SubscriptionStatusEnum;
-use App\Enums\TenantSuport\TicketPriorityEnum;
-use App\Enums\TenantSuport\TicketStatusEnum;
-use App\Enums\TenantSuport\TicketTypeEnum;
+use App\Enums\Stripe\{ProductIntervalEnum, SubscriptionStatusEnum};
+use App\Enums\TenantSuport\{TicketPriorityEnum, TicketStatusEnum, TicketTypeEnum};
 use PHPUnit\Framework\TestCase;
 
 class TenantForgeDomainEnumTest extends TestCase
@@ -32,11 +29,11 @@ class TenantForgeDomainEnumTest extends TestCase
         foreach ([TicketPriorityEnum::class, TicketStatusEnum::class, TicketTypeEnum::class] as $enum) {
             $values = array_map(static fn ($case) => $case->value, $enum::cases());
 
-            $this->assertNotEmpty($values, $enum.' must define at least one state.');
+            $this->assertNotEmpty($values, $enum . ' must define at least one state.');
             $this->assertSame(
                 $values,
                 array_values(array_unique($values)),
-                $enum.' must not contain duplicate persisted values.'
+                $enum . ' must not contain duplicate persisted values.'
             );
         }
     }

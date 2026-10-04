@@ -10,7 +10,7 @@
         "croustibat/filament-jobs-monitor": "^2.5",
         "filament/filament": "^3.2",
         "ibrahimbougaoua/filament-rating-star": "^1.0",
-        "joaopaulolndev/filament-edit-profile": "*",
+        "joaopaulolndev/filament-edit-profile": "^1.0",
         "laravel/cashier": "^15.6",
         "laravel/fortify": "^1.25",
         "laravel/framework": "^11.31",
