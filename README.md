@@ -1,40 +1,26 @@
 ![TenantForge SaaS Foundation — MULTI-TENANT LARAVEL FOUNDATION](docs/images/portfolio-banner.svg)
 
-# TenantForge SaaS Foundation
+# Tenant-Forge
 
-**A production-oriented multi-tenant SaaS foundation for Laravel with tenant isolation, subscription billing, administration and operational workflows.**
+> A tenant-aware Laravel SaaS foundation for organizations, administration, billing, and subscription workflows.
 
-TenantForge is a Laravel and Filament application foundation for building organisation-based SaaS products on a shared database architecture. It brings together tenant lifecycle management, Stripe-backed subscription operations, feature-aware plans, administration, support workflows and containerised local infrastructure in one codebase.
+Tenant-Forge gives teams a practical starting point for building organization-based SaaS products on a shared database. It combines tenant lifecycle management, Filament application surfaces, Stripe-backed subscription operations, support workflows, and Docker-oriented local infrastructure in one reviewable Laravel codebase.
 
-> **Project provenance:** TenantForge is a derivative development based on the open-source `wallacemartinss/core_tenant` project. The upstream foundation and its original author, Wallace Martins, are credited below. This repository preserves that provenance while developing the system under a distinct technical identity.
+## What the foundation demonstrates
 
-## Product architecture and engineering highlights
+| Capability | Implementation evidence |
+|---|---|
+| Organization and tenant lifecycle | `app/Models/Organization.php`, `app/Models/User.php`, and Filament tenancy configuration model the account boundary and tenant-facing access. |
+| Administration and application surfaces | `app/Providers/Filament/` and `app/Filament/` separate administrative resources, tenant resources, pages, and operational widgets. |
+| Billing and subscription workflows | `app/Services/Stripe/`, `app/Filament/Billing/`, Cashier models, and `StripeWebhookController.php` cover checkout, subscriptions, refunds, and webhook entry points. |
+| Support and operational tooling | Typed support states, queue/job monitoring, storage, and Docker services show the surrounding platform concerns needed by a SaaS foundation. |
 
-A multi-tenant SaaS foundation for Laravel applications that need tenant onboarding, subscription billing, support, and administration.
-
-- **Architecture:** A shared-database tenancy model layers organisation lifecycle, tenant-aware application access, Filament administration, Stripe subscription workflows, and container-oriented local infrastructure.
-- **Distinctive engineering:** The core engineering challenge is maintaining tenant boundaries across identity, data access, plan entitlements, billing events, and support operations; upstream foundation attribution is retained.
-
-## What the system demonstrates
-
-The codebase provides working examples of several concerns that commonly have to be coordinated in a SaaS backend:
-
-- organisation/company tenant management in a single database;
-- separate administrative and tenant-facing Filament surfaces;
-- Stripe customer, product, price, subscription, coupon and refund workflows;
-- plan and feature modelling;
-- tenant registration and account provisioning;
-- support-ticket workflows with typed status, priority and category states;
-- profile and theme customisation;
-- queue/job monitoring;
-- Docker-based application infrastructure;
-- MySQL and PostgreSQL-oriented configuration;
-- Laravel authentication and application services.
+The strongest engineering problem here is cross-cutting tenant safety: identity, persistence, plans, billing events, and support actions all need to retain the correct organization context as the application grows.
 
 ## Architecture
 
 ```text
-                         TenantForge
+                         Tenant-Forge
                               |
               +---------------+---------------+
               |                               |
@@ -177,7 +163,7 @@ Do not commit real database credentials, Stripe secrets or webhook signing secre
 
 ## Limitations
 
-TenantForge is an engineering foundation, not a finished vertical SaaS product. Production deployment requires environment-specific security review, backup/restore policy, monitoring, rate limiting, tenant-isolation testing and payment-flow validation.
+Tenant-Forge is an engineering foundation, not a finished vertical SaaS product. Production deployment requires environment-specific security review, backup/restore policy, monitoring, rate limiting, tenant-isolation testing and payment-flow validation.
 
 The repository demonstrates application architecture and integration patterns; it does not claim PCI certification or guarantee that a deployment is secure solely because it uses this codebase.
 
@@ -187,7 +173,7 @@ The repository demonstrates application architecture and integration patterns; i
 
 ## Provenance and attribution
 
-This repository is derived from the MIT-licensed `wallacemartinss/core_tenant` project by **Wallace Martins**. Upstream architecture and code remain subject to their original license and attribution requirements. Subsequent development and the TenantForge project identity are maintained by **Jason Lee / @Masterleeaus**.
+This repository is derived from the MIT-licensed `wallacemartinss/core_tenant` project by **Wallace Martins**. Upstream architecture and code remain subject to their original license and attribution requirements. Subsequent development and the Tenant-Forge project identity are maintained by **Jason Lee / @Masterleeaus**.
 
 The provenance statement is intentionally retained so that downstream users can distinguish upstream work from subsequent development.
 
