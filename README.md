@@ -96,6 +96,16 @@ Tenant support is represented as an application workflow rather than an external
 | Code quality | Laravel Pint, CaptainHook |
 | Frontend toolchain | Vite / Node.js |
 
+## Code map and evidence
+
+| Concern | Location | Evidence in this repository |
+|---|---|---|
+| Tenant and account models | `app/Models/Organization.php`, `app/Models/User.php` | organisation/user relationships and Filament tenancy integration |
+| Administration and tenant panels | `app/Providers/Filament/`, `app/Filament/` | separate admin/application resources, pages and widgets |
+| Billing workflows | `app/Services/Stripe/`, `app/Filament/Billing/`, `app/Http/Controllers/StripeWebhookController.php` | Cashier-backed checkout, subscription, refund and webhook handling |
+| Persistence contract | `database/migrations/` | organization, billing, support, webhook and job-related tables |
+| Automated checks | `tests/Unit/TenantForgeDomainEnumTest.php` and Laravel example tests | enum invariants plus application/unit smoke coverage; external Stripe flows are not integration-tested here |
+
 ## Repository structure
 
 ```text
@@ -124,8 +134,8 @@ docker-compose.yml  Local service orchestration
 ### Install
 
 ```bash
-git clone https://github.com/Masterleeaus/Designerly.git
-cd Designerly
+git clone https://github.com/Masterleeaus/Tenant-Forge.git
+cd Tenant-Forge
 composer install
 cp .env.example .env
 php artisan key:generate
@@ -146,6 +156,8 @@ Alternatively, use the included Docker Compose environment:
 ```bash
 docker compose up -d
 ```
+
+The root route redirects to `/app`; the Stripe and Evolution webhook entry points are `/stripe/webhook` and `/evolution/webhook`.
 
 For local Stripe webhook testing, configure the Stripe CLI to forward events to the application's `/stripe/webhook` endpoint and place the generated webhook secret in the environment configuration.
 
