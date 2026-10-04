@@ -1,4 +1,4 @@
-![TenantForge SaaS Foundation — MULTI-TENANT LARAVEL FOUNDATION](docs/images/portfolio-banner.svg)
+![Tenant-Forge — tenant-aware Laravel SaaS foundation with administration, billing, support, and shared SQL data](docs/images/tenant-forge-banner.svg)
 
 # Tenant-Forge
 
@@ -16,6 +16,10 @@ Tenant-Forge gives teams a practical starting point for building organization-ba
 | Support and operational tooling | Typed support states, queue/job monitoring, storage, and Docker services show the surrounding platform concerns needed by a SaaS foundation. |
 
 The strongest engineering problem here is cross-cutting tenant safety: identity, persistence, plans, billing events, and support actions all need to retain the correct organization context as the application grows.
+
+<p align="center">
+  <img src="docs/images/tenant-forge-architecture.svg" alt="Tenant-Forge architecture from administration and tenant surfaces through Laravel domain services to Stripe, Cashier, and shared SQL data." width="100%" />
+</p>
 
 ## Architecture
 
