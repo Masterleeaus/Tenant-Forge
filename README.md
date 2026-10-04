@@ -1,4 +1,4 @@
-![TenantForge SaaS Foundation - MULTI-TENANT LARAVEL FOUNDATION](docs/images/portfolio-banner.svg)
+![TenantForge SaaS Foundation — MULTI-TENANT LARAVEL FOUNDATION](docs/images/portfolio-banner.svg)
 
 # TenantForge SaaS Foundation
 
@@ -193,9 +193,8 @@ The provenance statement is intentionally retained so that downstream users can 
 
 ## Author / maintainer
 
-**Jason Lee** - [@Masterleeaus](https://github.com/Masterleeaus)
+**Jason Lee** — [@Masterleeaus](https://github.com/Masterleeaus)
 
 ## License
 
 Retain the upstream MIT license and all legally required attribution when redistributing derivative source code.
-
