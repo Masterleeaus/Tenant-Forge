@@ -90,7 +90,7 @@ Tenant support is represented as an application workflow rather than an external
 | Administration and tenant panels | `app/Providers/Filament/`, `app/Filament/` | separate admin/application resources, pages and widgets |
 | Billing workflows | `app/Services/Stripe/`, `app/Filament/Billing/`, `app/Http/Controllers/StripeWebhookController.php` | Cashier-backed checkout, subscription, refund and webhook handling |
 | Persistence contract | `database/migrations/` | organization, billing, support, webhook and job-related tables |
-| Automated checks | `tests/Unit/Tenant-ForgeDomainEnumTest.php` and Laravel example tests | enum invariants plus application/unit smoke coverage; external Stripe flows are not integration-tested here |
+| Automated checks | `tests/Unit/TenantForgeDomainEnumTest.php` and Laravel example tests | enum invariants plus application/unit smoke coverage; external Stripe flows are not integration-tested here |
 
 ## Repository structure
 
